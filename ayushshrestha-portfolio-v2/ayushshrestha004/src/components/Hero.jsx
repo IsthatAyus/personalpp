@@ -160,7 +160,7 @@ export default function Hero({ scrollToSection }) {
           >
             View Projects
           </button>
-          <a href="/resume.pdf" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+          <a href="/Ayush_Shrestha_Resume.pdf" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             Download Resume
           </a>
           <button onClick={() => scrollToSection('contact')} className="btn btn-outline">

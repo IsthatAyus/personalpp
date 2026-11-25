@@ -33,7 +33,7 @@ export default function Contact() {
     <section id="contact" className="section contact-section" ref={rootRef}>
       <div className="section-content">
         <div className="section-label">
-          <span className="label-number">04</span>
+          <span className="label-number">05</span>
           <span className="label-text">Contact</span>
         </div>
 

@@ -126,7 +126,7 @@ export default function Projects() {
     <section id="projects" className="section projects-section" ref={rootRef}>
       <div className="section-content">
         <div className="section-label">
-          <span className="label-number">02</span>
+          <span className="label-number">03</span>
           <span className="label-text">Projects</span>
         </div>
         <h2 className="section-title">Featured Work</h2>

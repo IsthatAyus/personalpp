@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 // commands in the hero, just expressed as the page's own scroll spine.
 const STAGES = [
   { id: 'about', label: 'build' },
+  { id: 'experience', label: 'monitor' },
   { id: 'projects', label: 'test' },
   { id: 'skills', label: 'stage' },
   { id: 'contact', label: 'deploy' },

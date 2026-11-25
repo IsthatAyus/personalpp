@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ── Reset ─────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -87,6 +86,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
 
 .section { padding: 7rem 0; position: relative; }
 .about-section { background: var(--bg); }
+.experience-section { background: var(--bg-alt); }
 .projects-section { background: var(--bg-alt); }
 .skills-section { background: var(--bg); }
 .contact-section { background: var(--bg-alt); }
@@ -115,6 +115,78 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
 }
 
 .highlight { color: var(--accent); font-weight: 600; }
+
+/* ── Experience ───────────────────────────────────────────────────────── */
+.experience-timeline { width: 100%; }
+.experience-entry {
+  position: relative;
+  margin-left: 0.4rem;
+  padding: 0 0 0 1.75rem;
+  border-left: 2px solid var(--border);
+}
+.experience-entry::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg-alt);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.experience-role {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+.experience-company { margin-top: 0.25rem; color: var(--accent-ink); font-size: 1.05rem; font-weight: 600; }
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: right;
+}
+.experience-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1rem 2rem;
+  padding: 1.5rem 1.75rem;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.experience-highlights li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+.experience-highlights li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    PIPELINE TRAIL — signature scroll element
@@ -245,6 +317,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  text-decoration: none;
 }
 
 .nav-logo img { height: 30px; width: auto; }
@@ -329,11 +402,18 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
   position: fixed; inset: var(--nav-h) 0 0 0;
   background: var(--bg);
   transform: translateY(-100%);
-  transition: transform 0.35s var(--ease);
-  z-index: 999;
+  transition: transform 0.35s var(--ease), visibility 0s linear 0.35s;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1001;
   overflow-y: auto;
 }
-.mobile-menu-open { transform: translateY(0); }
+.mobile-menu-open {
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
 .mobile-menu-inner { padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1.75rem; }
 .mobile-nav-link { display: flex; align-items: center; gap: 0.75rem; font-size: 1.5rem; font-family: var(--font-display); font-weight: 600; text-transform: capitalize; color: var(--ink-soft); }
 .mobile-nav-link.active { color: var(--accent); }
@@ -342,7 +422,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
   margin-top: 1rem; text-align: center; padding: 0.9rem; border-radius: 999px;
   background: var(--ink); color: #fff; font-weight: 600;
 }
-.menu-overlay { position: fixed; inset: 0; background: rgba(11,14,20,0.3); opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease); z-index: 998; }
+.menu-overlay { position: fixed; inset: 0; background: rgba(11,14,20,0.3); opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease); z-index: 999; }
 .menu-overlay-open { opacity: 1; pointer-events: auto; }
 
 @media (max-width: 860px) {
@@ -686,6 +766,10 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
 }
 @media (max-width: 660px) {
   .projects-grid { grid-template-columns: 1fr; }
+  .experience-entry { padding-left: 1.1rem; }
+  .experience-header { flex-direction: column; padding: 1.25rem; }
+  .experience-meta { align-items: flex-start; text-align: left; }
+  .experience-highlights { grid-template-columns: 1fr; padding: 1.25rem; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -785,6 +869,37 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
 
 @media (max-width: 660px) { .contact-grid { grid-template-columns: 1fr; } }
 
+/* RECENT BLOGS */
+.recent-blogs-section { background: var(--bg); }
+.recent-blogs-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.5rem; }
+.recent-blogs-heading .section-title { margin-bottom: 0.45rem; }
+.recent-blogs-lede { max-width: 58ch; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+.recent-blogs-all { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 0.45rem; margin-bottom: 0.25rem; color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+.recent-blogs-all span { transition: transform 0.2s var(--ease); }
+.recent-blogs-all:hover span { transform: translate(2px, -2px); }
+.recent-blogs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.recent-blog-card { display: flex; min-width: 0; min-height: 250px; flex-direction: column; align-items: flex-start; padding: 1.4rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease); }
+.recent-blog-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.recent-blog-card h3 { margin: 0.8rem 0 0.45rem; color: var(--ink); font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.02em; }
+.recent-blog-card > p { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.6; }
+.recent-blog-card .post-tags { margin-top: 0.75rem; }
+.recent-blog-cta { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: auto; padding-top: 1.2rem; color: var(--accent); font-size: 0.8rem; font-weight: 700; }
+.recent-blog-cta span { transition: transform 0.2s var(--ease); }
+.recent-blog-card:hover .recent-blog-cta span { transform: translateX(3px); }
+.recent-blogs-empty { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; border: 1px dashed var(--border-hover); border-radius: var(--radius); background: var(--bg); }
+.recent-blogs-empty-icon { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 1.2rem; }
+.recent-blogs-empty h3 { margin-bottom: 0.25rem; color: var(--ink); font-family: var(--font-display); font-size: 1.05rem; }
+.recent-blogs-empty p { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.55; }
+
+@media (max-width: 860px) {
+  .recent-blogs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .recent-blogs-heading { align-items: flex-start; flex-direction: column; gap: 0.8rem; }
+  .recent-blogs-grid { grid-template-columns: 1fr; }
+  .recent-blog-card { min-height: 0; }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════════════════════════════ */
@@ -805,3 +920,8 @@ button { font: inherit; border: none; background: none; cursor: pointer; color: 
 @media (max-width: 480px) {
   .about-stats { grid-template-columns: 1fr; gap: 1rem; text-align: left; }
 }
+/* ── Nav links are <a> now (crawlable); keep them looking like the old buttons ── */
+a.nav-link,
+a.mobile-nav-link { text-decoration: none; }
+a.nav-link { display: inline-block; }
+section[id] { scroll-margin-top: 72px; }

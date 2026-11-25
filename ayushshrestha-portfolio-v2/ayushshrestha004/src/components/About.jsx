@@ -63,7 +63,7 @@ export default function About({ photo }) {
         <div className="about-grid">
           <div className="about-image-wrapper">
             <div className="image-frame">
-              <img src={photo} alt="Ayush Shrestha" className="about-image" />
+              <img src={photo} alt="Portrait of Ayush Shrestha, DevOps engineer and full-stack developer from Kathmandu, Nepal" className="about-image" />
               <div className="image-overlay" />
             </div>
             <div className="image-decoration" />
@@ -75,11 +75,10 @@ export default function About({ photo }) {
             </h2>
             <div className="about-text">
               <p>
-                I'm a <strong>second-year student</strong> at Malpi International College
+                I'm a <strong>third-year student</strong> at Malpi International College
                 with an intense passion for{' '}
-                <span className="highlight">DevOps and cloud technologies</span>.
-                Currently interning as a DevOps Engineer, I work hands-on with CI/CD
-                pipelines, infrastructure as code, and container orchestration.
+                <span className="highlight">DevOps and cloud technologies along with networking</span>.
+                Currently learning about networking and cloud computing, I am deeply fascinated by the intricacies of how systems communicate and scale in the digital realm. Having a strong foundation in networking and cloud computing, I am eager to explore the latest advancements in these fields and contribute to innovative solutions that drive efficiency and reliability in modern software infrastructure. Having done internships in the field of devops, I have gained practical experience in designing and implementing robust network architectures, as well as deploying scalable applications on cloud platforms. I am committed to continuous learning and staying updated with emerging technologies to ensure that I can deliver cutting-edge solutions that meet the evolving needs of businesses and users alike.
               </p>
               <p>
                 Alongside that, I build <strong>full-stack products end to end</strong> —

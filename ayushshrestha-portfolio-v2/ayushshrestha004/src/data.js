@@ -80,4 +80,4 @@ export const skillGroups = [
 ];
 
 // ─── Nav / pipeline sections ─────────────────────────────────────────────
-export const navItems = ['about', 'projects', 'skills', 'contact'];
+export const navItems = ['about', 'experience', 'projects', 'skills', 'contact'];
